@@ -2,6 +2,7 @@ package com.ecommerce.microcommerce.web.controller;
 
 import com.ecommerce.microcommerce.dao.ProductDao;
 import com.ecommerce.microcommerce.model.Product;
+import com.ecommerce.microcommerce.service.ProductService;
 import com.ecommerce.microcommerce.web.exceptions.ProduitIntrouvableException;
 import com.fasterxml.jackson.databind.ser.FilterProvider;
 import com.fasterxml.jackson.databind.ser.impl.SimpleBeanPropertyFilter;
@@ -27,6 +28,8 @@ public class ProductController {
     @Autowired
     private ProductDao productDao;
 
+    @Autowired
+    private ProductService productService;
 
     //Récupérer la liste des produits
 
@@ -103,6 +106,11 @@ public class ProductController {
         return productDao.chercherUnProduitCher(400);
     }
 
+
+    @GetMapping(value = "/AdminProduits")
+    public String calculerMargeProduit() {
+        return productService.calculerMargeProduit();
+    }
 
 
 }
