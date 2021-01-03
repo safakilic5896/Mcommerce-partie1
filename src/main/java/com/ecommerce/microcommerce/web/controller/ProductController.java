@@ -65,8 +65,6 @@ public class ProductController {
     }
 
 
-
-
     //ajouter un produit
     @PostMapping(value = "/Produits")
 
@@ -107,10 +105,12 @@ public class ProductController {
     }
 
 
-    @GetMapping(value = "/AdminProduits")
+    @GetMapping(value = "/Produits/AdminProduits")
     public String calculerMargeProduit() {
         return productService.calculerMargeProduit();
     }
 
+    @GetMapping(value = "/Produits/trierParOrdreAplhabetique")
+    public List<Product> trierProduitsParOrdreAlphabetique() { return productService.trierProduitsParOrdreAlphabetique(); }
 
 }

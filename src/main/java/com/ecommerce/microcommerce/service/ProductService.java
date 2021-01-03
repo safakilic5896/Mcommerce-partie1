@@ -23,4 +23,8 @@ public class ProductService {
                 .collect(Collectors.toMap(Product::toString, product -> product.getPrix() - product.getPrixAchat()));
         return new JSONObject(map).toString();
     }
+
+    public List<Product> trierProduitsParOrdreAlphabetique() {
+        return productDao.findAllByOrderByNomAsc();
+    }
 }
